@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+    	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    	<link rel="stylesheet" href="main.css"/>
+      	<title> My first Leaflet map </title>
+    </head>
+  	<body>
+      <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+      <div id="map"></div>
+  		<script>
+  			//initialize the map        
+  			var map = L.map('map').setView([51.972427, 5.667105], 14);
+  
+  			//Create baselayer - tiles         
+  			var backgroundMap = L.tileLayer('http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg',{
+    			attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    			maxZoom: 19
+    			}
+  			);
+  
+  			backgroundMap.addTo(map);
+        var centrum = L.marker([51.965719, 5.663441]).addTo(map);
+        var synthia = L.marker([51.9659208, 5.6506476]).addTo(map);
+        var maud = L.marker([51.9692698, 5.660097]).addTo(map);
+        var forum = L.marker([51.985283, 5.66364]).addTo(map);
+        var popup = "Hier woont Synthia";
+        synthia.bindPopup(popup);
+        var popup = "Hier woont Maud";
+        maud.bindPopup(popup);
+        var popup = "Centrum Wageningen";
+        centrum.bindPopup(popup);
+        var circle = L.circle([51.965719, 5.663441], 250, {
+        color: 'green',
+        fillColor: '#298A08',
+        fillOpacity: 0.5
+        }).addTo(map);
+        var polygon = L.polygon([
+        [51.9659208, 5.6506476],
+        [51.9692698, 5.660097],
+        [51.985283, 5.66364]
+        ]).addTo(map);
+			</script>
+    	<H1>Wageningen Maud en Synthia naar Campus Forum</H1>
+  	</body>
+</html>
